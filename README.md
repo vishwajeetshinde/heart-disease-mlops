@@ -21,6 +21,12 @@ This project demonstrates a complete MLOps workflow for heart disease prediction
    - `eda_preprocessing.py` for data cleaning and EDA
    - `feature_engineering_modeling_mlflow.py` for model training and MLflow tracking
 
+## Code Quality & Testing
+- **Check linting issues:** `python check_linting.py`
+- **Fix linting automatically:** `python fix_linting.py`
+- **Run all tests:** `python run_tests.py`
+- **See guides:** `LINTING_FIXES.md` and `CI_CD_GUIDE.md`
+
 ## Experiment Tracking
 - Start MLflow UI:
   ```bash
