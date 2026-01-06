@@ -30,7 +30,7 @@ jobs:
 
       - name: Canonicalize dataset encodings
         run: |
-          python src/data/canonicalize_dataset.py
+          python notebooks/data/canonicalize_dataset.py
 
       - name: Train model (dry run)
         run: |

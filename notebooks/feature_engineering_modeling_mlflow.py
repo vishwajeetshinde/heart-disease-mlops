@@ -301,7 +301,7 @@ with mlflow.start_run(run_name="Logistic_Regression") as run:
     joblib.dump(best_lr, model_path)
     mlflow.log_artifact(model_path)
 
-    print("✓ Model and artifacts logged to MLflow")
+    print("Model and artifacts logged to MLflow")
 
     # Store results
     results['logistic_regression'] = {
@@ -454,7 +454,7 @@ with mlflow.start_run(run_name="Random_Forest") as run:
     importance_df.to_csv(importance_path, index=False)
     mlflow.log_artifact(importance_path)
 
-    print("✓ Model and artifacts logged to MLflow")
+    print("Model and artifacts logged to MLflow")
 
     # Store results
     results['random_forest'] = {
