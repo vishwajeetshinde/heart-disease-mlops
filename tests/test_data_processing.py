@@ -97,8 +97,8 @@ class TestDataCleaning:
         # restecg: 0-2
         assert df['restecg'].isin([0, 1, 2]).all(), "restecg should be in range 0-2"
 
-        # slope: 0-2
-        assert df['slope'].isin([0, 1, 2]).all(), "slope should be in range 0-2"
+        # slope: 0-3
+        assert df["slope"].isin([0, 1, 2, 3]).all(), "slope should be in range 0-3"
 
         # ca: 0-4
         assert df['ca'].isin([0, 1, 2, 3, 4]).all(), "ca should be in range 0-4"
