@@ -487,7 +487,7 @@ print("\n", comparison_df.to_string(index=False))
 best_model = 'Logistic Regression' if results['logistic_regression']['test_roc_auc'] > \
              results['random_forest']['test_roc_auc'] else 'Random Forest'
 
-print(f"\n🏆 Best Model: {best_model}")
+print(f"\nBest Model: {best_model}")
 print("   Based on Test ROC-AUC Score")
 
 # -----------------------------------
@@ -496,15 +496,15 @@ print("   Based on Test ROC-AUC Score")
 print("\n" + "=" * 60)
 print("EXPERIMENT TRACKING COMPLETE")
 print("=" * 60)
-print("\n✅ All experiments logged to MLflow")
-print(f"✅ Experiment Name: {EXPERIMENT_NAME}")
-print("✅ Total Runs: 2 (Logistic Regression + Random Forest)")
-print("\n📊 Logged Items per Run:")
+print("\nAll experiments logged to MLflow")
+print(f"Experiment Name: {EXPERIMENT_NAME}")
+print("Total Runs: 2 (Logistic Regression + Random Forest)")
+print("\nLogged Items per Run:")
 print("   - Parameters (dataset info, hyperparameters, best params)")
 print("   - Metrics (accuracy, precision, recall, F1, ROC-AUC)")
 print("   - Artifacts (models, plots, reports)")
 print("   - Model signatures")
-print("\n🚀 View Results:")
+print("\nView Results:")
 print("   Run: mlflow ui")
 print("   Then open: http://127.0.0.1:5000")
 

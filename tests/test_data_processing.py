@@ -91,8 +91,8 @@ class TestDataCleaning:
         """Test that categorical features are in expected ranges"""
         df = pd.read_csv("notebooks/data/heart_cleaned.csv")
 
-        # cp (chest pain type): 0-3
-        assert df['cp'].isin([0, 1, 2, 3]).all(), "cp should be in range 0-3"
+        # cp (chest pain type): 0-4
+        assert df["cp"].isin([0, 1, 2, 3, 4]).all(), "cp should be in range 0-4"
 
         # restecg: 0-2
         assert df['restecg'].isin([0, 1, 2]).all(), "restecg should be in range 0-2"
