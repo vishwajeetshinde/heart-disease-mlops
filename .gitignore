@@ -1,0 +1,19 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+
+.venv/
+__pycache__/
+.pytest_cache/
+
+mlflow.db
+mlruns/
+
+notebooks/models/
+notebooks/results/

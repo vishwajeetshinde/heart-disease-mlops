@@ -13,7 +13,7 @@ def preprocess_input(input_df, scaler):
 
 if __name__ == "__main__":
     # Example usage
-    scaler = load_preprocessing_pipeline("../models/scaler.pkl")
+    scaler = load_preprocessing_pipeline("../notebooks/models/scaler.pkl")
     # Suppose you have new data in a DataFrame 'new_data'
     # new_data_scaled = preprocess_input(new_data, scaler)
     print("Preprocessing pipeline loaded. Ready for inference.")
