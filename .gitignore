@@ -15,5 +15,4 @@ __pycache__/
 mlflow.db
 mlruns/
 
-notebooks/models/
 notebooks/results/
