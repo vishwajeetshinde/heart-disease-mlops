@@ -1,0 +1,18 @@
+apiVersion: v2
+name: heart-disease-api
+description: A Helm chart for Heart Disease Prediction API
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+keywords:
+  - machine-learning
+  - healthcare
+  - prediction-api
+  - fastapi
+maintainers:
+  - name: Heart Disease MLOps Team
+    email: team@example.com
+home: https://github.com/vishwajeetshinde/heart-disease-mlops
+sources:
+  - https://github.com/vishwajeetshinde/heart-disease-mlops
+icon: https://example.com/icon.png

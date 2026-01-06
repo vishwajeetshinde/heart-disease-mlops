@@ -21,15 +21,15 @@ def test_data():
 @pytest.fixture
 def models():
     """Load trained models"""
-    lr_model = joblib.load("notebooks/models/logistic_regression.pkl")
-    rf_model = joblib.load("notebooks/models/random_forest.pkl")
+    lr_model = joblib.load("models/logistic_regression.pkl")
+    rf_model = joblib.load("models/random_forest.pkl")
     return {'lr': lr_model, 'rf': rf_model}
 
 
 @pytest.fixture
 def scaler():
     """Load scaler"""
-    return joblib.load("notebooks/models/scaler.pkl")
+    return joblib.load("models/scaler.pkl")
 
 
 class TestModelArchitecture:

@@ -42,18 +42,15 @@ from sklearn.preprocessing import StandardScaler
 # -----------------------------------
 # 1. CONFIGURATION
 # -----------------------------------
-from pathlib import Path
-
-REPO_ROOT = Path(__file__).resolve().parents[1]   # .../heart-disease-mlops
-DATA_PATH = REPO_ROOT / "notebooks" / "data" / "heart_cleaned.csv"
-OUTPUT_DIR = REPO_ROOT / "notebooks" / "screenshots"
-MODELS_DIR = REPO_ROOT / "notebooks" / "models"
-RESULTS_DIR = REPO_ROOT / "notebooks" / "results"
+DATA_PATH = "notebooks/data/heart_cleaned.csv"
+OUTPUT_DIR = "screenshots"
+MODELS_DIR = "models"
+RESULTS_DIR = "results"
 
 # Create directories
-MODELS_DIR.mkdir(parents=True, exist_ok=True)
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(MODELS_DIR, exist_ok=True)
+os.makedirs(RESULTS_DIR, exist_ok=True)
 
 RANDOM_STATE = 42
 np.random.seed(RANDOM_STATE)
@@ -304,7 +301,7 @@ with mlflow.start_run(run_name="Logistic_Regression") as run:
     joblib.dump(best_lr, model_path)
     mlflow.log_artifact(model_path)
 
-    print("✓ Model and artifacts logged to MLflow")
+    print("Model and artifacts logged to MLflow")
 
     # Store results
     results['logistic_regression'] = {
@@ -457,7 +454,7 @@ with mlflow.start_run(run_name="Random_Forest") as run:
     importance_df.to_csv(importance_path, index=False)
     mlflow.log_artifact(importance_path)
 
-    print("✓ Model and artifacts logged to MLflow")
+    print("Model and artifacts logged to MLflow")
 
     # Store results
     results['random_forest'] = {
@@ -490,7 +487,7 @@ print("\n", comparison_df.to_string(index=False))
 best_model = 'Logistic Regression' if results['logistic_regression']['test_roc_auc'] > \
              results['random_forest']['test_roc_auc'] else 'Random Forest'
 
-print(f"\n🏆 Best Model: {best_model}")
+print(f"\nBest Model: {best_model}")
 print("   Based on Test ROC-AUC Score")
 
 # -----------------------------------
@@ -499,15 +496,15 @@ print("   Based on Test ROC-AUC Score")
 print("\n" + "=" * 60)
 print("EXPERIMENT TRACKING COMPLETE")
 print("=" * 60)
-print("\n✅ All experiments logged to MLflow")
-print(f"✅ Experiment Name: {EXPERIMENT_NAME}")
-print("✅ Total Runs: 2 (Logistic Regression + Random Forest)")
-print("\n📊 Logged Items per Run:")
+print("\nAll experiments logged to MLflow")
+print(f"Experiment Name: {EXPERIMENT_NAME}")
+print("Total Runs: 2 (Logistic Regression + Random Forest)")
+print("\nLogged Items per Run:")
 print("   - Parameters (dataset info, hyperparameters, best params)")
 print("   - Metrics (accuracy, precision, recall, F1, ROC-AUC)")
 print("   - Artifacts (models, plots, reports)")
 print("   - Model signatures")
-print("\n🚀 View Results:")
+print("\nView Results:")
 print("   Run: mlflow ui")
 print("   Then open: http://127.0.0.1:5000")
 
