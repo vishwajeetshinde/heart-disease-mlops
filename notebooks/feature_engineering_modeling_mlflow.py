@@ -42,18 +42,15 @@ from sklearn.preprocessing import StandardScaler
 # -----------------------------------
 # 1. CONFIGURATION
 # -----------------------------------
-from pathlib import Path
-
-REPO_ROOT = Path(__file__).resolve().parents[1]   # .../heart-disease-mlops
-DATA_PATH = REPO_ROOT / "notebooks" / "data" / "heart_cleaned.csv"
-OUTPUT_DIR = REPO_ROOT / "notebooks" / "screenshots"
-MODELS_DIR = REPO_ROOT / "notebooks" / "models"
-RESULTS_DIR = REPO_ROOT / "notebooks" / "results"
+DATA_PATH = "notebooks/data/heart_cleaned.csv"
+OUTPUT_DIR = "screenshots"
+MODELS_DIR = "models"
+RESULTS_DIR = "results"
 
 # Create directories
-MODELS_DIR.mkdir(parents=True, exist_ok=True)
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(MODELS_DIR, exist_ok=True)
+os.makedirs(RESULTS_DIR, exist_ok=True)
 
 RANDOM_STATE = 42
 np.random.seed(RANDOM_STATE)
