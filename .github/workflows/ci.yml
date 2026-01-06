@@ -1,8 +1,13 @@
 name: CI/CD Pipeline
 
+# Lint
+# Train model (generate models/ and mlruns/)
+# Run unit tests
+# Upload artifacts
+
 on:
   push:
-    branches: [ main ]
+    branches: [ main, "dev/**" ]
   pull_request:
     branches: [ main ]
 
@@ -26,31 +31,39 @@ jobs:
 
     - name: Lint with flake8
       run: |
-        flake8 src/ tests/ --max-line-length=120 --ignore=E203,W503,E501,F401 --exit-zero || true
-      continue-on-error: true
-
-    - name: Run unit tests
-      run: |
-        pytest --junitxml=results/test-results.xml
+        flake8 src/ tests/ --max-line-length=120 --ignore=E203,W503,E501,F401
 
     - name: Train model (dry run)
       run: |
         python notebooks/feature_engineering_modeling_mlflow.py
+    
+    - name: Run unit tests
+      env:
+        PYTHONPATH: ${{ github.workspace }}
+      run: |
+        mkdir -p results
+        pytest --junitxml=results/test-results.xml   
 
     - name: Upload test results artifact
+      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: test-results
         path: results/test-results.xml
+        if-no-files-found: warn
 
     - name: Upload model artifacts
+      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: trained-models
-        path: models/
+        path: notebooks/models/
+        if-no-files-found: warn
 
     - name: Upload MLflow run logs
+      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: mlflow-logs
         path: mlruns/
+        if-no-files-found: warn
