@@ -1,0 +1,76 @@
+# Docker ignore file
+# Files and directories to exclude from Docker build context
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# MLflow
+mlruns/
+
+# Data files (keep only models)
+data/
+notebooks/data/
+*.csv
+*.xlsx
+
+# Documentation and configs
+*.md
+!README.md
+.git/
+.github/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Screenshots and results (not needed in container)
+screenshots/
+results/
+*.png
+*.jpg
+*.jpeg
+
+# Tests
+tests/
+pytest.ini
+.flake8
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
